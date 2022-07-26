@@ -16,6 +16,13 @@ FROM users JOIN educations
 ON users.id = educations."userId"
 JOIN schools ON schools.id = educations."schoolId"
 JOIN courses ON courses.id = educations."courseId"
- WHERE educations.status = 'finished';
-
+ WHERE educations.status = 'finished' AND users.id = 30;
+--Questão 4--
+SELECT users.id, users.name, roles.name AS role, 
+companies.name AS company, experiences."startDate"
+FROM users JOIN experiences 
+ON users.id = experiences."userId"
+JOIN roles ON experiences."roleId" = roles.id
+JOIN companies ON companies.id = experiences."companyId"
+WHERE users.id = 50 AND experiences."endDate" IS NULL;
  
